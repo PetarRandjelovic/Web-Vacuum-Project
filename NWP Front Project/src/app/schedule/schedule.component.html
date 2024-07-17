@@ -1,0 +1,48 @@
+<h1>Vacuum details</h1>
+
+
+<div class="vacuum-info mt-5">
+  <h4>Name: {{this.vacuum.name}}</h4>
+  <h4>Exists: {{this.vacuum.exists}}</h4>
+  <h4>Working: {{this.vacuum.working}}</h4>
+  <h4>Status: {{this.vacuum.status}}</h4>
+</div>
+
+<div class="schedule-box">
+  <h5>Scheduled start</h5>
+  <form [formGroup]="scheduleStartVacuumForm" (submit)="scheduleStartVacuum()" class="mt-5">
+    <div class="mb-3">
+      <label for="date-input-start" class="form-label">Date</label>
+      <input [formControlName]="'date'" type="datetime-local" class="form-control" id="date-input-start">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Start</button>
+
+  </form>
+</div>
+
+<div class="schedule-box">
+  <h5>Scheduled stop</h5>
+  <form [formGroup]="scheduleStopVacuumForm" (submit)="scheduleStopVacuum()" class="mt-5">
+    <div class="mb-3">
+      <label for="date-input-stop" class="form-label">Date</label>
+      <input [formControlName]="'date'" type="datetime-local" class="form-control" id="date-input-stop">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Stop</button>
+
+  </form>
+</div>
+
+<div class="schedule-box mb-2">
+  <h5>Scheduled restart</h5>
+  <form [formGroup]="scheduleRestartVacuumForm" (submit)="scheduleRestartVacuum()" class="mt-5">
+    <div class="mb-3">
+      <label for="date-input-restart" class="form-label">Date</label>
+      <input [formControlName]="'date'" type="datetime-local" class="form-control" id="date-input-restart">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Restart</button>
+
+  </form>
+</div>

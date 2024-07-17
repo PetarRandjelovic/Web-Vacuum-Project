@@ -1,0 +1,24 @@
+<header>
+  <mat-toolbar>
+    <span>My Application</span>
+    <a *ngIf="shouldShowLogin" [routerLink]="['/login']" (click)="logout()" class="nav-link active" aria-current="page">
+      {{ isAuthenticated ? 'Logout' : 'Logout' }}
+    </a>
+    <a [routerLink]="'users'" class="nav-link active" aria-current="page">Users </a>
+    <a [routerLink]="'createuser'" class="nav-link active" aria-current="page">Create User </a>
+    <a [routerLink]="'vacuum-search'" class="nav-link active" aria-current="page"> Vacuum-search </a>
+    <a [routerLink]="'create-vacuum'" class="nav-link active" aria-current="page"> Create-vacuum</a>
+    <a [routerLink]="'errors'" class="nav-link active" aria-current="page"> Errors</a>
+  </mat-toolbar>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+        <div class="navbar-nav"></div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="container pt-3">
+  <router-outlet></router-outlet>
+</div>

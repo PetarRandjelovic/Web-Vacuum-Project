@@ -1,0 +1,31 @@
+<form [formGroup]="editUserForm" (submit)="updateUser()">
+  <div class="mb-3">
+    <label for="usernameInput" class="form-label">First name</label>
+    <input *ngIf="user" [formControlName]="'username'" [(ngModel)]="user.username" type="text" class="form-control" id="usernameInput" aria-describedby="emailHelp" required>
+
+  </div>
+  <div class="mb-3">
+    <label for="lastNameInput" class="form-label">Last name</label>
+ 
+    <input *ngIf="user" [formControlName]="'lastName'" [(ngModel)]="user.lastName" type="text" class="form-control" id="lastNameInput" aria-describedby="emailHelp" required>
+
+  </div>
+  <div class="mb-3">
+    <label for="emailInput" class="form-label">Email</label>
+    
+    <input *ngIf="user" [formControlName]="'email'" [(ngModel)]="user.email" type="text" class="form-control" id="emailInput" aria-describedby="emailHelp" required>
+
+    
+  </div>
+
+  <div style="display: flex;  justify-content: center; align-items: center; text-align: center;">
+    <mat-checkbox *ngFor="let permission of permissionMap | keyvalue" class="example-margin"
+              (change)="togglePermission(permission.key)" [checked]="permission.value">
+  {{ permission.key }}
+</mat-checkbox>
+</div>
+
+
+  <button type="submit" class="btn btn-primary">Edit</button>
+</form>
+

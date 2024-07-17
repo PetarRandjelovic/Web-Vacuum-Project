@@ -1,0 +1,12 @@
+<form [formGroup]="newVacuumForm" (submit)="addVacuum()" method="post" >
+
+    <div class="mb-3">
+      <label for="vacuumNameInput" class="form-label">Vacuum name</label>
+      <input [formControlName]="'vacuumName'"  type="text" class="form-control" id="vacuumNameInput" required>
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Create</button>
+  </form>
+  
+  
+  

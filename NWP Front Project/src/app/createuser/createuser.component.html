@@ -1,0 +1,31 @@
+<form [formGroup]="createUserForm" (submit)="createUser()">
+    <div class="mb-3">
+        <label for="usernameInput" class="form-label">Username</label>
+        <input formControlName="username" type="text" class="form-control" id="usernameInput" required>
+      </div>
+      <div class="mb-3">
+        <label for="lastNameInput" class="form-label">Last name</label>
+        <input formControlName="lastName" type="text" class="form-control" id="lastNameInput" required>
+      </div>
+      <div class="mb-3">
+        <label for="emailInput" class="form-label">Email</label>
+        <input formControlName="email" type="text" class="form-control" id="emailInput" required>
+        <div *ngIf="createUserForm?.get('email')?.hasError('invalidEmail')" class="text-danger">
+          Invalid email format
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="passwordInput" class="form-label">Password</label>
+        <input formControlName="password" type="text" class="form-control" id="passwordInput" required>
+      </div>
+  
+    <div style="display: flex; justify-content: center; align-items: center; text-align: center;">
+      <mat-checkbox *ngFor="let permission of permissionMap | keyvalue" class="example-margin"
+                    (change)="togglePermission(permission.key)" [checked]="permission.value">
+        {{ permission.key }}
+      </mat-checkbox>
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Create</button>
+  </form>
+  

@@ -1,0 +1,24 @@
+<table class="table-hover users-table table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Date</th>
+        <th scope="col">Vacuum ID</th>
+        <th scope="col">Message</th>
+        <th scope="col">User ID</th>
+        <th scope="col">Error Type</th>
+  
+      </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor="let error of errors index as i;">
+        <th scope="row">{{i+1}}</th>
+        <td>{{error.date.split("T")[0]}} {{error.date.split("T")[1].split(".")[0]}}</td>
+        <td>{{error.vacuumId}}</td>
+        <td>{{error.errorMsg}}</td>
+        <td>{{error.userId}}</td>
+        <td>{{error.errorType}}</td>
+      </tr>
+    </tbody>
+  </table>
+  
